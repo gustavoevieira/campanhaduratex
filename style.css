@@ -1,0 +1,387 @@
+:root {
+    --color-background-primary: #fff;
+    --color-text-primary: #333;
+    --color-text-secondary: #555;
+    --color-footer: #222;
+    --color-accent: #b18a54; /* Dourado */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    background-color: #f0f0f0; /* Fundo cinza claro */
+}
+
+nav{
+    background-color: var(--color-text-secondary);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--color-footer); /* Usando a cor do rodapé para manter a consistência */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.logo-container img {
+    max-height: 50px;
+    margin: 0 15px;
+    filter: brightness(0) invert(1); /* Isso fará com que as logos fiquem brancas para se destacar no fundo escuro */
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('https://duratex-madeira-prd-images-bucket.s3.amazonaws.com/2022/02/Duratex_Ambiente-Oasis_2000px.jpg'); /* Imagem de móveis de design */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay escuro para destacar o texto */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: clamp(2.5em, 5vw, 4em);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: clamp(1em, 2vw, 1.3em);
+    margin-bottom: 40px;
+}
+
+
+
+.btn-participar {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-background-primary);
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-participar:hover {
+    background-color: #c0952d; /* Dourado mais escuro no hover */
+    transform: translateY(-3px);
+}
+
+/* Seções Principais */
+main {
+    padding: 50px 20px;
+}
+
+.premio-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.premio-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--color-background-primary);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    padding: 30px;
+    gap: 30px;
+    align-items: center;
+}
+
+.premio-logo{
+    max-width: 300px;
+}
+
+.premio-imagem {
+    flex: 1 1 40%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.title-photos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.title {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+/* Carrossel */
+.carousel-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel img {
+    width: 100%;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.carousel img.active {
+    display: block;
+    opacity: 1;
+}
+
+
+.premio-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.premio-texto {
+    flex: 1 1 50%;
+    max-width: 300px;
+}
+
+.premio-texto h2 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.premio-texto p {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.participar-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.participar-section h2 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.passos-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.passo {
+    text-align: center;
+    max-width: 250px;
+}
+
+.passo-numero {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 2.5em;
+    color: #ccc;
+}
+
+.passo img {
+    width: 80px;
+    height: auto;
+    margin: 10px 0;
+}
+
+.passo p {
+    font-family: var(--font-secondary);
+    font-size: 1em;
+}
+
+footer {
+    background-color: var(--color-footer);
+    color: white;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-accent);
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--color-accent);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .premio-card {
+        flex-direction: column;
+    }
+    .premio-imagem, .premio-texto {
+        flex: 1 1 100%;
+    }
+}
+
+
+/* Estilo para a página de regulamento */
+.regulamento-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.regulamento-secao {
+    margin-bottom: 40px;
+}
+
+.regulamento-secao h2 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1.5em;
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--color-accent); /* Linha dourada para destacar */
+    padding-bottom: 5px;
+}
+
+.regulamento-secao p {
+    margin-bottom: 15px;
+}
+
+.regulamento-secao ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.regulamento-secao li {
+    margin-bottom: 10px;
+}
+
+
+/* Estilos para a página de formulário */
+.formulario-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Estilo para o campo de upload de arquivo */
+.form-group input[type="file"] {
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+/* O botão de enviar já usa o estilo do .btn-participar */
