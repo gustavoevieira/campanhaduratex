@@ -1,22 +1,24 @@
+// server.js
 require('dotenv').config();
-
 const express = require('express');
 const multer = require('multer');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+
+// Serve os arquivos estáticos da pasta 'public'
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuração do Multer para lidar com arquivos
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: {
-    fileSize: 5 * 1024 * 1024 
+    fileSize: 5 * 1024 * 1024 // Limite de 5MB por arquivo
   }
 });
 
-// Configuração do Nodemailer
+// Configuração do Nodemailer (substitua com suas credenciais)
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: process.env.SMTP_PORT,
@@ -27,8 +29,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
-
+// Rota para receber os dados do formulário
 app.post('/submit-form', upload.array('Fotos_do_Projeto[]', 3), async (req, res) => {
   try {
     const { Nome, Email, Telefone, CPF_ou_CNPJ, Descricao_do_Projeto } = req.body;
@@ -47,8 +48,8 @@ app.post('/submit-form', upload.array('Fotos_do_Projeto[]', 3), async (req, res)
     `;
 
     const mailOptions = {
-      from: 'gustavovieirafazzio@gmail.com',
-      to: 'gustavovieirafazzio@gmail.com',
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_USER,
       subject: 'Novo Projeto para a Promoção Salone del Mobile 2026',
       html: emailBody,
       attachments: fotos.map(file => ({
@@ -59,7 +60,6 @@ app.post('/submit-form', upload.array('Fotos_do_Projeto[]', 3), async (req, res)
     };
 
     await transporter.sendMail(mailOptions);
-
     console.log('E-mail enviado com sucesso!');
     res.redirect('/pages/agradecimento.html');
 
@@ -69,6 +69,4 @@ app.post('/submit-form', upload.array('Fotos_do_Projeto[]', 3), async (req, res)
   }
 });
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
-});
+module.exports = app;
