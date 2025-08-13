@@ -100,6 +100,7 @@ nav {
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-participar:hover {
@@ -458,4 +459,55 @@ footer {
     .carousel-container {
         max-width: 300px;
     }
+}
+
+/* Estilos para o novo campo de upload de arquivo */
+.file-upload-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+.file-upload-wrapper.hidden {
+    display: none;
+}
+
+.file-upload-wrapper.visible {
+    display: block;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    color: var(--color-text-secondary);
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #e0e0e0;
+}
+
+/* Esconde o input de arquivo padrão */
+input[type="file"] {
+    display: none;
+}
+
+.image-preview {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

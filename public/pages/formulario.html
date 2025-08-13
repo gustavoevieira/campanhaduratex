@@ -25,7 +25,7 @@
             </a>
         </nav>
         <div class="header-nav-links">
-            <a href="../../index.html" class="nav-link">Página Inicial</a>
+            <a href="../index.html" class="nav-link">Página Inicial</a>
         </div>
     </header>
 
@@ -59,10 +59,38 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="fotos">Fotos do Projeto (até 3)</label>
-                    <input type="file" id="fotos" name="Fotos_do_Projeto[]" accept="image/*" required>
-                    <input type="file" id="fotos" name="Fotos_do_Projeto[]" accept="image/*">
-                    <input type="file" id="fotos" name="Fotos_do_Projeto[]" accept="image/*">
+                    <label>Fotos do Projeto (até 3)</label>
+                    <div id="fotos-container">
+                        <div class="file-upload-wrapper visible" data-upload-id="1">
+                            <label for="file-upload-1" class="custom-file-upload">
+                                <i class="fas fa-camera"></i> Escolher Imagem
+                            </label>
+                            <input id="file-upload-1" name="Fotos_do_Projeto[]" type="file" accept="image/*" />
+                            <div class="image-preview" style="display: none;">
+                                <img id="preview-1" src="#" alt="Pré-visualização da imagem" />
+                            </div>
+                        </div>
+
+                        <div class="file-upload-wrapper hidden" data-upload-id="2">
+                            <label for="file-upload-2" class="custom-file-upload">
+                                <i class="fas fa-camera"></i> Escolher Imagem
+                            </label>
+                            <input id="file-upload-2" name="Fotos_do_Projeto[]" type="file" accept="image/*" />
+                            <div class="image-preview" style="display: none;">
+                                <img id="preview-2" src="#" alt="Pré-visualização da imagem" />
+                            </div>
+                        </div>
+
+                        <div class="file-upload-wrapper hidden" data-upload-id="3">
+                            <label for="file-upload-3" class="custom-file-upload">
+                                <i class="fas fa-camera"></i> Escolher Imagem
+                            </label>
+                            <input id="file-upload-3" name="Fotos_do_Projeto[]" type="file" accept="image/*" />
+                            <div class="image-preview" style="display: none;">
+                                <img id="preview-3" src="#" alt="Pré-visualização da imagem" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn-participar">Enviar Projeto</button>
@@ -72,15 +100,46 @@
 
     <footer>
         <div class="footer-links">
-            <a href="../../index.html">Página Inicial</a>
+            <a href="../index.html">Página Inicial</a>
             <a href="regulamento.html">Regulamento</a>
             <a href="contato.html">Contato</a>
         </div>
         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/fazzio.madeiras"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/fazziomadeira/"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInputs = document.querySelectorAll('input[type="file"]');
+
+            fileInputs.forEach(input => {
+                input.addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    const uploadWrapper = this.closest('.file-upload-wrapper');
+                    const uploadId = parseInt(uploadWrapper.dataset.uploadId);
+                    const nextUploadWrapper = document.querySelector(`[data-upload-id="${uploadId + 1}"]`);
+                    const previewElement = document.getElementById(`preview-${uploadId}`);
+                    const previewContainer = uploadWrapper.querySelector('.image-preview');
+                    const customLabel = uploadWrapper.querySelector('.custom-file-upload');
+
+                    if (file) {
+                        // Exibe a pré-visualização da imagem
+                        previewElement.src = URL.createObjectURL(file);
+                        previewContainer.style.display = 'block';
+                        customLabel.style.display = 'none'; // Oculta o botão "Escolher ficheiro"
+
+                        // Mostra o próximo campo de upload, se existir
+                        if (nextUploadWrapper) {
+                            nextUploadWrapper.classList.remove('hidden');
+                            nextUploadWrapper.classList.add('visible');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
