@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCarousel();
 
 
-    // Smooth Scroll para o botão "PARTICIPE AGORA"
     const btnParticipar = document.querySelector('.btn-participar');
 
     btnParticipar.addEventListener('click', (event) => {
@@ -99,10 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- Lógica do Carrossel ---
-    // A lógica foi movida para dentro do DOMContentLoaded para garantir que as imagens já existem
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel img'); // Seleciona as imagens após a renderização
+    const slides = document.querySelectorAll('.carousel img');
 
     // Mostrar a imagem inicial
     if (slides.length > 0) {
@@ -115,41 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
         slides[currentSlide].classList.add('active');
     }
 
-    function prevSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-
-    // Troca automática de slides a cada 3.2 segundos (3200ms)
     setInterval(nextSlide, 3200);
 
-    // Funções extras, mantidas do seu código
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-
-    document.querySelectorAll('.toggle-content').forEach(function(h2) {
-        h2.addEventListener('click', function() {
-            this.classList.toggle('active');
-            let arrow = this.querySelector('.arrow');
-            arrow.textContent = arrow.textContent === '▼' ? '▲' : '▼';
-        });
-    });
-
-    function mostrarDescricao(id) {
-        const descricao = document.getElementById(id);
-        if (descricao.style.display === "block") {
-            descricao.style.display = "none";
-        } else {
-            descricao.style.display = "block";
-        }
-    }
 
 });
 

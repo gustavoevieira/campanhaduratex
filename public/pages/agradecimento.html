@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado! - Promoção Salone del Mobile 2026</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="logo-container">
+            <a href="https://fazziomadeiras.com.br" target="_blank">
+                <img src="../uploads/fazzio-logo.png" alt="Logo Fazzio">
+            </a>
+            <a href="https://www.duratexmadeira.com.br" target="_blank">
+                <img src="../uploads/logo-duratex.png" alt="Logo Duratex">
+            </a>
+        </nav>
+    </header>
+
+    <main class="agradecimento-main">
+        <div class="agradecimento-container">
+            <h1>Obrigado por enviar seu projeto!</h1>
+            <p>Sua participação foi registrada com sucesso.</p>
+            <p>Você será redirecionado para a página inicial em <span id="contador">10</span> segundos.</p>
+            <a href="../index.html" class="btn-participar">Clique aqui para voltar agora</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="../index.html">Página Inicial</a>
+            <a href="regulamento.html">Regulamento</a>
+            <a href="#">Contato</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        let segundos = 10;
+        const contadorElemento = document.getElementById('contador');
+
+        function atualizarContador() {
+            segundos--;
+            contadorElemento.textContent = segundos;
+
+            if (segundos === 0) {
+                clearInterval(intervalo);
+                window.location.href = '../index.html';
+            }
+        }
+
+        const intervalo = setInterval(atualizarContador, 1000);
+    </script>
+</body>
+
+</html>

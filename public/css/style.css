@@ -3,7 +3,7 @@
     --color-text-primary: #333;
     --color-text-secondary: #555;
     --color-footer: #222;
-    --color-accent: #b18a54; /* Dourado */
+    --color-accent: #b18a54;
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Montserrat', sans-serif;
 }
@@ -18,10 +18,10 @@ body {
     font-family: var(--font-primary);
     color: var(--color-text-primary);
     line-height: 1.6;
-    background-color: #f0f0f0; /* Fundo cinza claro */
+    background-color: #f0f0f0;
 }
 
-nav{
+nav {
     background-color: var(--color-text-secondary);
 }
 
@@ -30,7 +30,7 @@ nav{
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
-    background-color: var(--color-footer); /* Usando a cor do rodapé para manter a consistência */
+    background-color: var(--color-footer);
     position: absolute;
     top: 0;
     left: 0;
@@ -41,12 +41,12 @@ nav{
 .logo-container img {
     max-height: 50px;
     margin: 0 15px;
-    filter: brightness(0) invert(1); /* Isso fará com que as logos fiquem brancas para se destacar no fundo escuro */
+    filter: brightness(0) invert(1);
 }
 
 /* Hero Section */
 .hero-section {
-    background-image: url('https://duratex-madeira-prd-images-bucket.s3.amazonaws.com/2022/02/Duratex_Ambiente-Oasis_2000px.jpg'); /* Imagem de móveis de design */
+    background-image: url('https://duratex-madeira-prd-images-bucket.s3.amazonaws.com/2022/02/Duratex_Ambiente-Oasis_2000px.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -67,7 +67,7 @@ nav{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Overlay escuro para destacar o texto */
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .hero-content {
@@ -90,8 +90,6 @@ nav{
     margin-bottom: 40px;
 }
 
-
-
 .btn-participar {
     display: inline-block;
     background-color: var(--color-accent);
@@ -105,7 +103,7 @@ nav{
 }
 
 .btn-participar:hover {
-    background-color: #c0952d; /* Dourado mais escuro no hover */
+    background-color: #c0952d;
     transform: translateY(-3px);
 }
 
@@ -133,7 +131,7 @@ main {
     align-items: center;
 }
 
-.premio-logo{
+.premio-logo {
     max-width: 300px;
 }
 
@@ -280,17 +278,6 @@ footer {
     color: var(--color-accent);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .premio-card {
-        flex-direction: column;
-    }
-    .premio-imagem, .premio-texto {
-        flex: 1 1 100%;
-    }
-}
-
-
 /* Estilo para a página de regulamento */
 .regulamento-container {
     max-width: 900px;
@@ -311,7 +298,7 @@ footer {
     font-size: 1.5em;
     color: var(--color-text-primary);
     margin-bottom: 15px;
-    border-bottom: 2px solid var(--color-accent); /* Linha dourada para destacar */
+    border-bottom: 2px solid var(--color-accent);
     padding-bottom: 5px;
 }
 
@@ -327,7 +314,6 @@ footer {
 .regulamento-secao li {
     margin-bottom: 10px;
 }
-
 
 /* Estilos para a página de formulário */
 .formulario-container {
@@ -384,4 +370,92 @@ footer {
     background-color: #fafafa;
 }
 
-/* O botão de enviar já usa o estilo do .btn-participar */
+/* Estilos para a página de agradecimento */
+.agradecimento-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    text-align: center;
+}
+
+.agradecimento-container {
+    max-width: 600px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.agradecimento-container h1 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 2em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.agradecimento-container p {
+    font-family: var(--font-primary);
+    font-size: 1.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+}
+
+#contador {
+    font-weight: 700;
+    color: var(--color-accent);
+    font-size: 1.2em;
+}
+
+/* Estilos para o link de navegação do cabeçalho */
+.header-nav-links {
+    text-align: center;
+    padding-top: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.nav-link {
+    display: inline-block;
+    color: var(--color-background-primary);
+    background-color: var(--color-footer);
+    padding: 8px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--color-accent);
+}
+
+.hero-section {
+    padding-top: 100px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .premio-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .premio-card {
+        flex-direction: column;
+        width: 450px;
+    }
+
+    .premio-imagem,
+    .premio-texto {
+        flex: 1 1 100%;
+    }
+
+    .carousel-container {
+        max-width: 300px;
+    }
+}
