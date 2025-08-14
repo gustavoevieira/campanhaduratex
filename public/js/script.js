@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Efeitos de micro-interação nos ícones dos passos
     const passosIcons = document.querySelectorAll('.passo img');
 
     passosIcons.forEach(icon => {
@@ -90,13 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 80, // Ajuste o valor da margem se necessário
+                    top: targetSection.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
     });
-
 
     let currentSlide = 0;
     const slides = document.querySelectorAll('.carousel img');
@@ -113,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setInterval(nextSlide, 3200);
+
 
 
 });

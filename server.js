@@ -1,4 +1,3 @@
-// server.js
 require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
@@ -70,3 +69,29 @@ app.post('/submit-form', upload.array('Fotos_do_Projeto[]', 3), async (req, res)
 });
 
 module.exports = app;
+
+app.post('/submit-contact', async (req, res) => {
+  try {
+    const { Nome, Email, Assunto, Mensagem } = req.body;
+    let emailBody = `
+      <h1>Nova Mensagem de Contato</h1>
+      <p><strong>Nome:</strong> ${Nome}</p>
+      <p><strong>E-mail:</strong> ${Email}</p>
+      <p><strong>Assunto:</strong> ${Assunto}</p>
+      <p><strong>Mensagem:</strong></p>
+      <p>${Mensagem}</p>
+    `;
+    const mailOptions = {
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_USER,
+      subject: `Contato: ${Assunto}`,
+      html: emailBody
+    };
+    await transporter.sendMail(mailOptions);
+    console.log('E-mail de contato enviado com sucesso!');
+    res.redirect('/pages/agradecimento.html');
+  } catch (error) {
+    console.error('Erro ao enviar o formulário de contato:', error);
+    res.status(500).send('Erro ao processar o formulário. Por favor, tente novamente mais tarde.');
+  }
+});
